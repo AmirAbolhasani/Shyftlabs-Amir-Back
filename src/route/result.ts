@@ -3,7 +3,6 @@ import { Middleware } from '../middleware/Middleware';
 
 import { GetAll } from '../controller/result/GetAll';
 import { Post } from '../controller/result/Post';
-import { Delete } from '../controller/result/Delete';
 
 const router = express.Router({ mergeParams: true });
 
@@ -58,26 +57,5 @@ router.get('/all', middleware.getHandler(new GetAll()));
  *         description: Result created successfully
  */
 router.post('/', middleware.getHandler(new Post()));
-
-/**
- * @swagger
- * /result/{id}:
- *   delete:
- *     summary: Delete a result by ID
- *     tags:
- *       - Result
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         description: ID of the result to delete
- *         schema:
- *           type: integer
- *           format: int64
- *     responses:
- *       200:
- *         description: Result deleted successfully
- */
-router.delete('/:id', middleware.getHandler(new Delete()));
 
 export default router;

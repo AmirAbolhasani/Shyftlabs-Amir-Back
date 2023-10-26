@@ -39,12 +39,4 @@ export class ResultTable extends BaseTable<ResultModel>
 			{ transaction: trx }
 		);
 	}
-	async delete(id: number, trx: Transaction | null): Promise<number>
-	{
-		let options = {
-			where: { id },
-			transaction: trx
-		};
-		return await this.model.destroy(options);
-	}
 }

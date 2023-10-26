@@ -26,20 +26,16 @@ export class StudentTable extends BaseTable<StudentModel>
 			{ transaction: trx }
 		);
 	}
-	async delete(id: number, trx: Transaction | null): Promise<number>
+	async delete(id: number, trx: Transaction | null): Promise<void>
 	{
-		return await this.database.startTransaction<number>(async (trx) =>
+		await this.database.startTransaction<void>(async (trx) =>
 		{
 			let options = {
 				where: { id },
 				transaction: trx
 			};
-			let deleted_student = this.model.destroy(options);
-
-			// delete results belong to this student
+			this.model.destroy(options);
 			await this.database.result.model.destroy({ where: { student_id: id }, transaction: trx });
-
-			return deleted_student;
 		}, trx);
 	}
 }

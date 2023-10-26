@@ -2,7 +2,6 @@ import { Database } from "../../database/Database";
 import Joi, { SchemaLike } from "joi";
 import { Request, Response } from "express";
 import { BaseController } from "../BaseController";
-import { ErrorOperation } from "../../ErrorOperation";
 
 export class Delete extends BaseController
 {
@@ -20,9 +19,7 @@ export class Delete extends BaseController
 	{
 		let id: number = parseInt(req.params.id);
 
-		let result = await database.student.delete(id, null);
-		if (result == 0)
-			ErrorOperation.throwHTTP(404, "delete failed")
+		await database.student.delete(id, null);
 	}
 	override async postHandle()
 	{ }

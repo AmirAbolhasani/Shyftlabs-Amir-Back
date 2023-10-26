@@ -67,11 +67,16 @@ export abstract class BaseMiddleware
                 await this.postHandle(req, res, database);
             } catch (error)
             {
-                console.log(error);
                 if (error instanceof HTTPError)
+                {
                     code = error.code;
+                    result = error.message;
+                }
                 else
+                {
                     code = 500;
+                    result = error + "";
+                }
             }
             return res.status(code).send(result);
         };
