@@ -74,7 +74,7 @@ We have 3 tables in this project
 
 1. Student
 	```
-	id!: number;
+	id: number;
 	name: string;
 	family: string;
 	birth_date: Date;
