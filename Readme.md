@@ -2,6 +2,13 @@
 
 This README provides an overview of the backend project assessment done by **Amir Abolhasani** for **Shyftlabs**, including its structure, setup instructions, technology stack, database design, and API documentation.
 
+## Technology Stack
+Node.js TypeScript
+Express
+MySQL
+Sequelize
+Swagger
+
 ## Project Structure
 -  `/src`: This directory contains the source code for the backend.
 -  `/src/controller`: This directory contains folders for each entity handing the endpoint source code.
@@ -56,13 +63,6 @@ tsc 			# to build typescript files
 	```
 
 The backend server will be accessible at http://localhost:4000.
-
-## Technology Stack
-Node.js TypeScript
-Express
-MySQL
-Sequelize
-Swagger
 
 ## Database Design
 We have 3 tables in this project
