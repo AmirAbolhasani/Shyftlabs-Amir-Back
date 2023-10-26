@@ -1,0 +1,1 @@
+export enum ResultScore { A, B, C, D, E, F }
