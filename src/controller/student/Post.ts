@@ -25,14 +25,11 @@ export class Post extends BaseController
 	{
 		let { name, family, birth_date, email } = req.body;
 
-		// Check if the student is at least 10 years old
-		{
-			const birthDate = new Date(birth_date);
-			const today = new Date();
-			const age = today.getFullYear() - birthDate.getFullYear();
-			if (age < 10)
-				ErrorOperation.throwHTTP(403, 'The student must be at least 10 years old.');
-		}
+		const birthDate = new Date(birth_date);
+		const today = new Date();
+		const age = today.getFullYear() - birthDate.getFullYear();
+		if (age < 10)
+			ErrorOperation.throwHTTP(403, 'The student must be at least 10 years old.');
 
 		return await database.student.create(name, family, birth_date, email, null);
 	}
